@@ -1,0 +1,45 @@
+@use 'sass:math';
+@import './_colors.scss';
+
+$modal-width: 20;
+$modal-height: 3;
+$modal-pos-x: math.div($modal-width, 2);
+$modal-pos-y: math.div($modal-height, 2);
+
+$border-radius: 8px;
+
+.addModal {
+  position: fixed;
+  display: flex;
+  left: calc(50% - #{$modal-pos-x * 1em});
+  top: calc(50% - #{$modal-pos-y * 1em});
+  width: $modal-width * 1em;
+  height: $modal-height * 1em;
+  border-radius: $border-radius;
+  box-shadow: 0 1px 4px $drop-shadow-color;
+  background-color: $color-background;
+}
+
+.addModalInput {
+  width: 100%;
+  padding: 0.4em 0.8em;
+  border: none;
+  border-radius: $border-radius;
+  color: $text-color500;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  font-size: 1.1em;
+  outline: none;
+
+  &:focus {
+    background-color: transparentize($color-primary, 0.8);
+  }
+}
+
+.buttonLayout {
+  display: flex;
+  height: 2em;
+  margin: auto;
+  padding: 0.2em;
+  font-size: 1.1em;
+}
