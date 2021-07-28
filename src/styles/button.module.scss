@@ -1,6 +1,6 @@
 @import './_colors.scss';
 
-@mixin button($color: $textColor500, $negColor: $textColor0) {
+@mixin button($color: $text-color500, $negColor: $text-color0) {
   all: unset;
   padding: 0.1em 0.2em;
   margin: 0 0.1em;
@@ -27,5 +27,5 @@
 }
 
 .buttonAccent {
-  @include button($colorAccent, $textColor0);
+  @include button($color-accent, $text-color0);
 }
