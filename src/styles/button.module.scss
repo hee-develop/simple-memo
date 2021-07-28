@@ -1,0 +1,31 @@
+@import './_colors.scss';
+
+@mixin button($color: $textColor500, $negColor: $textColor0) {
+  all: unset;
+  padding: 0.1em 0.2em;
+  margin: 0 0.1em;
+  background-color: none;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  letter-spacing: 0.01em;
+  color: $color;
+
+  &:hover {
+    border-color: $color;
+  }
+  &:active {
+    background-color: $color;
+    color: $negColor;
+  }
+}
+
+.button {
+  @include button();
+}
+
+.buttonAccent {
+  @include button($colorAccent, $textColor0);
+}
