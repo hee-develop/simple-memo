@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import styles from '../styles/add_modal.module.scss';
 import Button from './Button';
 
 type Props = {
+  isVisible: boolean,
   onConfirmed: (content: string) => void,
   onCanceled: () => void,
 }
 
 export default function AddModal({
+  isVisible,
   onCanceled,
   onConfirmed,
 }: Props) {
@@ -24,7 +26,7 @@ export default function AddModal({
     setValue('');
   }, [onCanceled]);
 
-  const onKeyDownedCallback = useCallback((ev) => {
+  const onKeyDownedCallback: React.KeyboardEventHandler<HTMLInputElement> = useCallback((ev) => {
     switch (ev.key) {
       case 'Enter':
         confirm();
@@ -36,8 +38,13 @@ export default function AddModal({
     }
   }, [cancel, confirm]);
 
+  const visibilityStyle: React.CSSProperties =  useMemo(() => ({display: isVisible ? 'flex' : 'none'}), [isVisible]);
+
   return (
-    <div className={styles.addModal}>
+    <div
+      className={styles.addModal}
+      onClick={(ev) => ev.stopPropagation()}
+      style={visibilityStyle}>
       <input
         className={styles.addModalInput}
         value={value}

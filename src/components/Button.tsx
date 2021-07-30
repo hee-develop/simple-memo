@@ -6,7 +6,7 @@ type Props = {
   text: string;
   description?: string;
   accent?: boolean;
-  onClicked?: () => void;
+  onClicked?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function Button({

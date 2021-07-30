@@ -7,11 +7,13 @@ import { removeTargetFromArray } from './functions/modifyArray';
 
 
 function App() {
+  const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+
   const [memos, setMemos] = useState(['aple', 'bana', 'carr']);
   const title = 'Simple memo';
 
   return (
-    <div className="App">
+    <div className="App" onClick={() => setIsAddModalVisible(true)}>
       <h1>{title}</h1>
       <div>
         {memos.map((memo, idx) => (
@@ -30,8 +32,9 @@ function App() {
       </div>
 
       <AddModal
+        isVisible={isAddModalVisible}
         onConfirmed={(str) => setMemos(prev => [...prev, str])}
-        onCanceled={() => null}
+        onCanceled={() => setIsAddModalVisible(false)}
       />
     </div>
   );
