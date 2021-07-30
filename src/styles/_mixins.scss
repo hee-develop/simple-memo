@@ -1,0 +1,10 @@
+$screenSizes: (
+  'mobile': 'screen and (max-width: 480px)',
+  'tablet': 'screen and (max-width: 768px)',
+) !default;
+
+@mixin mediaQuery($size: 'mobile') {
+  @media #{map-get($screenSizes, $size)} {
+    @content;
+  }
+}

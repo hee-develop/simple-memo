@@ -1,4 +1,17 @@
+@import './styles/_mixins.scss';
 @import './styles/_colors.scss';
+
+body {
+  font-size: 1.6em;
+  background-color: $color-background;
+
+  @include mediaQuery('tablet') {
+    font-size: 1.2em;
+  }
+  @include mediaQuery('mobile') {
+    font-size: 1em;
+  }
+}
 
 .App {
   text-align: center;
