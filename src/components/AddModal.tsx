@@ -15,18 +15,26 @@ export default function AddModal({
 }: Props) {
   const [value, setValue] = useState('');
 
+  const confirm = useCallback(() => {
+    onConfirmed(value);
+    setValue('');
+  }, [value, onConfirmed]);
+  const cancel = useCallback(() => {
+    onCanceled();
+    setValue('');
+  }, [onCanceled]);
+
   const onKeyDownedCallback = useCallback((ev) => {
     switch (ev.key) {
       case 'Enter':
-        onConfirmed(value);
+        confirm();
         break;
       case 'Esc':
       case 'Escape':
-        onCanceled();
+        cancel();
         break;
     }
-  }, [value, onCanceled, onConfirmed]);
-
+  }, [cancel, confirm]);
 
   return (
     <div className={styles.addModal}>
@@ -44,12 +52,12 @@ export default function AddModal({
           text="○"
           description="add this memo"
           accent={true}
-          onClicked={() => onConfirmed(value)}
+          onClicked={confirm}
         />
         <Button
           text="⛌"
           description="discard this memo"
-          onClicked={onCanceled}
+          onClicked={cancel}
         />
       </div>
     </div>
