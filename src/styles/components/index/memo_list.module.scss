@@ -1,0 +1,14 @@
+.memoList {
+  :nth-child(n) {
+    &::after {
+      content: "•";
+      padding: 0.4em;
+      opacity: 0.4;
+    }
+  }
+  :last-child {
+    &::after {
+      content: none;
+    }
+  }
+}
