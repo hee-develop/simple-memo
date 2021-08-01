@@ -17,55 +17,71 @@ export default function AddModal({
 }: Props) {
   const [value, setValue] = useState('');
 
-  const confirm = useCallback(() => {
+  const confirm = useCallback((ev) => {
+    ev.stopPropagation();
+    if (value.length < 1) return;
+
     onConfirmed(value);
     setValue('');
   }, [value, onConfirmed]);
-  const cancel = useCallback(() => {
+
+  const cancel = useCallback((ev) => {
+    ev.stopPropagation();
+
     onCanceled();
     setValue('');
   }, [onCanceled]);
 
+  const backgroundClicked = useCallback((ev: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    ev.stopPropagation();
+    cancel(ev);
+  }, [cancel]);
+
   const onKeyDownedCallback: React.KeyboardEventHandler<HTMLInputElement> = useCallback((ev) => {
     switch (ev.key) {
       case 'Enter':
-        confirm();
+        confirm(ev);
         break;
       case 'Esc':
       case 'Escape':
-        cancel();
+        cancel(ev);
         break;
     }
   }, [cancel, confirm]);
 
-  const visibilityStyle: React.CSSProperties =  useMemo(() => ({display: isVisible ? 'flex' : 'none'}), [isVisible]);
+  const visibilityStyle: React.CSSProperties =  useMemo(() => ({display: isVisible ? 'initial' : 'none'}), [isVisible]);
 
   return (
-    <div
-      className={styles.addModal}
-      onClick={(ev) => ev.stopPropagation()}
-      style={visibilityStyle}>
-      <input
-        className={styles.addModalInput}
-        value={value}
-        onChange={({target}) => setValue(target.value)}
-        onKeyDown={onKeyDownedCallback}
-        type="text"
-      />
+    <div style={visibilityStyle}>
       <div
-        className={styles.buttonLayout}
-      >
-        <Button
-          text="○"
-          description="add this memo"
-          accent={true}
-          onClicked={confirm}
+        className={styles.addModalBackground}
+        onClick={backgroundClicked}
+      />
+
+      <div className={styles.addModal}>
+        <input
+          className={styles.addModalInput}
+          value={value}
+          onChange={({target}) => setValue(target.value)}
+          onKeyDown={onKeyDownedCallback}
+          type="text"
+          placeholder="add something.."
         />
-        <Button
-          text="⛌"
-          description="discard this memo"
-          onClicked={cancel}
-        />
+        <div
+          className={styles.buttonLayout}
+        >
+          <Button
+            text="○"
+            description="add this memo"
+            accent={true}
+            onClicked={confirm}
+          />
+          <Button
+            text="⛌"
+            description="discard this memo"
+            onClicked={cancel}
+          />
+        </div>
       </div>
     </div>
   );
