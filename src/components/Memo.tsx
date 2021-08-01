@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import styles from '../styles/memo.module.scss';
 import { ContentStateType } from '../types/ContentStateType';
@@ -26,11 +26,20 @@ export default function Memo({
     return `${styles.memo} ${stateClass}`;
   }, [contentState]);
 
+  const onClickCallback = useCallback((ev: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    ev.stopPropagation();
+    onClicked();
+  }, [onClicked]);
+  const onDoubleClickCallback = useCallback((ev: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    ev.stopPropagation();
+    onDoubleClicked();
+  }, [onDoubleClicked]);
+
   return (
     <span
       className={memoClass}
-      onClick={() => onClicked()}
-      onDoubleClick={() => onDoubleClicked()}
+      onClick={onClickCallback}
+      onDoubleClick={onDoubleClickCallback}
     >
       {content}
     </span>
