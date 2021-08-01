@@ -2,12 +2,13 @@ import React from 'react';
 import Memo from '../Memo';
 
 import { removeTargetFromArray } from '../../functions/modifyArray';
+import { MemoType } from '../../types/MemoType';
 
 import styles from '../../styles/components/index/memo_list.module.scss';
 
 type Props = {
-  memos: string[];
-  setMemos: React.Dispatch<React.SetStateAction<string[]>>;
+  memos: MemoType[];
+  setMemos: React.Dispatch<React.SetStateAction<MemoType[]>>;
 }
 
 export default function MemoList({memos, setMemos}: Props) {
@@ -17,7 +18,8 @@ export default function MemoList({memos, setMemos}: Props) {
         <>
           <Memo
             key={`${idx}-${memo}`}
-            content={memo}
+            content={memo.content}
+            contentState={memo.state}
             onClicked={() => null}
             onDoubleClicked={() => {
               setMemos(prev => removeTargetFromArray(prev, idx))
