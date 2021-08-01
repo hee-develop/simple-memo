@@ -1,9 +1,11 @@
+@import '../../_colors.scss';
+
 .memoList {
   :nth-child(n) {
     &::after {
+      color: $text-color200;
       content: "•";
-      padding: 0.4em;
-      opacity: 0.4;
+      margin: 0 0.4em;
     }
   }
   :last-child {
