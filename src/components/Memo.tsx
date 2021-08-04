@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCallback, useMemo } from 'react';
 
-import styles from '../styles/memo.module.scss';
+import styles from '../styles/components/memo.module.scss';
 import { ContentStateType } from '../types/ContentStateType';
 
 type Props = {

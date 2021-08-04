@@ -1,10 +1,10 @@
 import React from 'react';
-import Memo from '../Memo';
+import Memo from './Memo';
 
-import { removeTargetFromArray, replaceTargetFromArray } from '../../functions/modifyArray';
-import { MemoType } from '../../types/MemoType';
+import { removeTargetFromArray, replaceTargetFromArray } from '../functions/modifyArray';
+import { MemoType } from '../types/MemoType';
 
-import styles from '../../styles/components/index/memo_list.module.scss';
+import styles from '../styles/components/memo_list.module.scss';
 
 type Props = {
   memos: MemoType[];

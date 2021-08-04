@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import AddModal from './components/AddModal';
-import MemoList from './components/index/MemoList';
+import MemoList from './components/MemoList';
 import { MemoType } from './types/MemoType';
 
 function App() {

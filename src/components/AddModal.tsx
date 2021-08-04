@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCallback, useMemo, useState } from 'react';
 
-import styles from '../styles/add_modal.module.scss';
+import styles from '../styles/components/add_modal.module.scss';
 import Button from './Button';
 
 type Props = {

@@ -1,4 +1,4 @@
-@import './_colors.scss';
+@import '../_colors.scss';
 
 @mixin button($color: $text-color500, $negColor: $text-color0) {
   all: unset;
