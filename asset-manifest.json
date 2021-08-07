@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/simple-memo/static/css/main.f61d94d4.chunk.css",
+    "main.css": "/simple-memo/static/css/main.027805f7.chunk.css",
     "main.js": "/simple-memo/static/js/main.4c325443.chunk.js",
     "main.js.map": "/simple-memo/static/js/main.4c325443.chunk.js.map",
     "runtime-main.js": "/simple-memo/static/js/runtime-main.0d0919ce.js",
@@ -12,13 +12,13 @@
     "index.html": "/simple-memo/index.html",
     "service-worker.js": "/simple-memo/service-worker.js",
     "service-worker.js.map": "/simple-memo/service-worker.js.map",
-    "static/css/main.f61d94d4.chunk.css.map": "/simple-memo/static/css/main.f61d94d4.chunk.css.map",
+    "static/css/main.027805f7.chunk.css.map": "/simple-memo/static/css/main.027805f7.chunk.css.map",
     "static/js/2.ba06d422.chunk.js.LICENSE.txt": "/simple-memo/static/js/2.ba06d422.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0d0919ce.js",
     "static/js/2.ba06d422.chunk.js",
-    "static/css/main.f61d94d4.chunk.css",
+    "static/css/main.027805f7.chunk.css",
     "static/js/main.4c325443.chunk.js"
   ]
 }
