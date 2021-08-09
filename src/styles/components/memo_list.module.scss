@@ -2,17 +2,12 @@
 
 .memoList {
   height: 100%;
+}
 
-  :nth-child(n) {
-    &::after {
-      color: $text-color200;
-      content: "•";
-      margin: 0 0.4em;
-    }
-  }
-  :last-child {
-    &::after {
-      content: none;
-    }
+.separator {
+  &::after {
+    color: $text-color200;
+    content: "•";
+    margin: 0 0.4em;
   }
 }

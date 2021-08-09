@@ -33,17 +33,23 @@ export default function MemoList({memos, setMemos, backgroundClicked}: Props) {
       onClick={onBackgroundClicked}
     >
       {memos.map((memo, idx) => (
-        <Memo
-          key={`${idx}-${memo}`}
-          content={memo.content}
-          contentState={memo.state}
-          onClicked={() => {
-            setMemos(prev => replaceTargetFromArray(prev, idx, changeState(memo)))
-          }}
-          onDoubleClicked={() => {
-            setMemos(prev => removeTargetFromArray(prev, idx))
-          }}
-        />
+        <>
+          <Memo
+            key={`${idx}-${memo}`}
+            content={memo.content}
+            contentState={memo.state}
+            onClicked={() => {
+              setMemos(prev => replaceTargetFromArray(prev, idx, changeState(memo)))
+            }}
+            onDoubleClicked={() => {
+              setMemos(prev => removeTargetFromArray(prev, idx))
+            }}
+          />
+
+          {idx !== (memos.length - 1) && (
+            <span className={styles.separator} />
+          )}
+        </>
       ))}
     </div>
   )
