@@ -26,21 +26,16 @@ function App() {
     localStorage.setItem('simple-memo-serialized-json', JSON.stringify(memos));
   }, [memos]);
 
-  const onBackgroundClicked = useCallback(ev => {
-    if ((ev.target as HTMLDivElement).className !== 'App') return;
-
+  const onBackgroundClicked = useCallback(() => {
     setIsAddModalVisible(true);
   }, []);
 
-  const title = 'Simple memo';
-
   return (
-    <div className="App" onClick={onBackgroundClicked}>
-      <h1>{title}</h1>
-
+    <div className="App">
       <MemoList
         memos={memos}
         setMemos={setMemos}
+        backgroundClicked={onBackgroundClicked}
       />
 
       <Footer />

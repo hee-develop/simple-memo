@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Memo from './Memo';
 
 import { removeTargetFromArray, replaceTargetFromArray } from '../functions/modifyArray';
@@ -9,6 +9,7 @@ import styles from '../styles/components/memo_list.module.scss';
 type Props = {
   memos: MemoType[];
   setMemos: React.Dispatch<React.SetStateAction<MemoType[]>>;
+  backgroundClicked: () => void;
 }
 
 const changeState = (memo: MemoType): MemoType => {
@@ -20,9 +21,17 @@ const changeState = (memo: MemoType): MemoType => {
   }
 };
 
-export default function MemoList({memos, setMemos}: Props) {
+export default function MemoList({memos, setMemos, backgroundClicked}: Props) {
+  const onBackgroundClicked = useCallback(ev => {
+    if ((ev.target as HTMLDivElement).className !== styles.memoList) return;
+    backgroundClicked();
+  }, [backgroundClicked]);
+
   return (
-    <div className={styles.memoList}>
+    <div
+      className={styles.memoList}
+      onClick={onBackgroundClicked}
+    >
       {memos.map((memo, idx) => (
         <Memo
           key={`${idx}-${memo}`}

@@ -1,6 +1,8 @@
 @import '../_colors.scss';
 
 .memoList {
+  height: 100%;
+
   :nth-child(n) {
     &::after {
       color: $text-color200;
