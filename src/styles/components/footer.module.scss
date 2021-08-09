@@ -1,0 +1,15 @@
+@import '../_colors.scss';
+
+.footer {
+  display: flex;
+  width: 100%;
+  background-color: $color-background-dark;
+  color: $text-color100;
+  padding: 0.4em 0.6em;
+}
+
+.footerTitle {
+  display: inline;
+  font-size: 1em;
+  margin: 0;
+}

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import './App.scss';
 import AddModal from './components/AddModal';
+import Footer from './components/Footer';
 import MemoList from './components/MemoList';
 import { MemoType } from './types/MemoType';
 
@@ -41,6 +42,8 @@ function App() {
         memos={memos}
         setMemos={setMemos}
       />
+
+      <Footer />
 
       <AddModal
         isVisible={isAddModalVisible}
